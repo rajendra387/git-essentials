@@ -1,0 +1,24 @@
+git config --global user.name "Rajendra S"
+git config --global user.email "rajendra.s@gmail.com"
+
+#edit username and author
+
+# For one commit
+git commit --amend --author="Author Name <email@address.com>"
+
+# for multiple commits
+git rebase -i B 
+#if you need to edit A, use 
+git rebase -i --root
+#change the lines for both C and D from pick to edit
+#Once the rebase started, it would first pause at C You would 
+git commit --amend --author="Author Name <email@address.com>"
+#Then 
+git rebase --continue
+#It would pause again at D
+#Then you would 
+git commit --amend --author="Author Name <email@address.com>" #again
+git rebase --continue
+#The rebase would complete.
+#Use 
+git push -f #to update your origin with the updated commits.
